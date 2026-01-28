@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  ghibli-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ghibli-frontend-dev
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_API_BASE_URL=http://localhost:8082/api/v1
+    volumes:
+      # For development - mount source code
+      - ./src:/app/src
+      - ./public:/app/public
+      - ./index.html:/app/index.html
+    networks:
+      - ghibli-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  ghibli-network:
+    driver: bridge

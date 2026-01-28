@@ -1,0 +1,29 @@
+# render.yaml - Infrastructure as Code for Render.com (Frontend)
+# Deploy this service using: render deploy --config render.yaml
+
+services:
+  - type: web
+    name: ghibli-frontend
+    env: docker
+    plan: standard
+    
+    # Environment variables
+    envVars:
+      - key: VITE_API_BASE_URL
+        value: https://ghibli-api.onrender.com/api/v1
+        sync: false
+      - key: NODE_ENV
+        value: production
+    
+    # Build configuration
+    buildCommand: npm install && npm run build
+    startCommand: npm run build && npx serve -s dist -l $PORT
+    
+    # Health check
+    healthCheckPath: /
+    
+    # Disk persistence (optional, for logs)
+    disk:
+      name: ghibli-frontend-logs
+      mountPath: /app/logs
+      sizeGB: 1

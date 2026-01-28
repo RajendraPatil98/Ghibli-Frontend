@@ -1,0 +1,50 @@
+# Docker build context ignore file
+# Speeds up Docker build by excluding unnecessary files
+
+# Node modules and dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# Build artifacts
+dist/
+build/
+.next/
+out/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Version Control
+.git/
+.gitignore
+.gitattributes
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Documentation
+*.md
+README.md
+LICENSE
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Testing
+__tests__/
+coverage/
+.nyc_output/
+
+# Development
+.eslintignore
+.prettierignore
