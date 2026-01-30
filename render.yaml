@@ -10,7 +10,7 @@ services:
     # Environment variables
     envVars:
       - key: VITE_API_BASE_URL
-        value: https://ghibli-backend-for-stability-ai-ghibli-app.onrender.com/api/v1
+        value: https://ghibli-backend-for-stability-ai-ghibli.onrender.com/api/v1
         sync: false
       - key: NODE_ENV
         value: production
