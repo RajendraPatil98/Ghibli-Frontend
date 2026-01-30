@@ -67,7 +67,7 @@ const PhotoToImageSection = ({ suggestedImageBlob, suggestedPrompt, setSuggested
         setError(null);
 
         try {
-            const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://ghibli-backend-for-ghibli-application.onrender.com/api/v1';
+            const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://ghibli-backend-for-stability-ai-ghibli-app.onrender.com/api/v1';
             // const API_URL = `${API_BASE_URL}/enhance-prompt`; // Localhost fallback commented out for production
             const API_URL = `${API_BASE_URL}/enhance-prompt`;
             const response = await fetch(API_URL, {
@@ -107,7 +107,7 @@ const PhotoToImageSection = ({ suggestedImageBlob, suggestedPrompt, setSuggested
         formData.append("prompt", prompt);
 
         try {
-            const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://ghibli-backend-for-ghibli-application.onrender.com/api/v1';
+            const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://ghibli-backend-for-stability-ai-ghibli-app.onrender.com/api/v1';
             // const API_URL = `${API_BASE_URL}/generate`; // Localhost fallback commented out for production
             const API_URL = `${API_BASE_URL}/generate`;
             const response = await fetch(API_URL, {
@@ -143,7 +143,7 @@ const PhotoToImageSection = ({ suggestedImageBlob, suggestedPrompt, setSuggested
             const formData = new FormData();
             formData.append('image', imageBlob);
 
-            const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://ghibli-backend-for-ghibli-application.onrender.com/api/v1';
+            const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://ghibli-backend-for-stability-ai-ghibli-app.onrender.com/api/v1';
             // const API_URL = `${API_BASE_URL}/analyze-emotion`; // Localhost fallback commented out for production
             const API_URL = `${API_BASE_URL}/analyze-emotion`;
             const response = await fetch(API_URL, {
